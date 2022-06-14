@@ -34,12 +34,31 @@ class DoctorRepo:
 
 
 class AppointmentRepo:
-    async def create(db: Session, doctor: schemas.AppointmentCreate):
-        db_appt = models.Doctor(first_name = doctor.first_name,
-                                last_name = doctor.last_name)
+    async def create(db: Session, appointment: schemas.AppointmentCreate):
+        db_appt = models.Appointment(patient_name = appointment.patient_name,
+                                     time = appointment.time,
+                                     kind = appointment.kind)
 
         db.add(db_appt)
         db.commit()
         db.refresh(db_appt)
         return db_appt
     
+        
+    def fetch_by_id(db: Session,_id:int):
+        return db.query(models.Store).filter(models.Store.id == _id).first()
+    
+    def fetch_by_name(db: Session,name:str):
+        return db.query(models.Doctor).filter(models.Doctor.last_name == name).first()
+    
+    def fetch_all(db: Session, skip: int = 0, limit: int = 100):
+        return db.query(models.Store).offset(skip).limit(limit).all()
+    
+    async def delete(db: Session,_id:int):
+        db_store= db.query(models.Store).filter_by(id=_id).first()
+        db.delete(db_store)
+        db.commit()
+        
+    async def update(db: Session,store_data):
+        db.merge(store_data)
+        db.commit()

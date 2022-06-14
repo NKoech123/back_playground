@@ -12,7 +12,7 @@ class Doctor(Base):
     last_name = Column(String(80), nullable=False, unique=True,index=True)
     appointments = relationship("Appointment")
     def __repr__(self):
-        return 'Doctor(first_name=%s, last_name=%s,appointment_id=%s)' % (self.first_name, self.last_name,self.appointment_id)
+        return 'Doctor(first_name=%s, last_name=%s)' % (self.first_name, self.last_name)
     
 class Appointment(Base):
     __tablename__ = "appointments"

@@ -13,7 +13,7 @@ class DoctorCreate(DoctorBase):
 
 
 class Doctor(DoctorBase):
-    id: int
+    #id: int
     first_name: str
     last_name: str
 
@@ -23,7 +23,7 @@ class Doctor(DoctorBase):
 
 class AppointmentBase(BaseModel):
     patient_name: str
-    time: time
+    time: datetime
     kind: str
    
 
