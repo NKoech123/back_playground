@@ -25,6 +25,9 @@ class AppointmentBase(BaseModel):
     patient_name: str
     time: datetime
     kind: str
+    doctor_lname: str
+    doctor_fname: str
+  
    
 
 class AppointmentCreate(AppointmentBase):

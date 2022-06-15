@@ -12,6 +12,10 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
+connection = engine.raw_connection()
+cursor = connection.cursor()
+
+print(cursor)
 
 # Dependency
 def get_db():
@@ -20,3 +24,5 @@ def get_db():
         yield db
     finally:
         db.close()
+
+        

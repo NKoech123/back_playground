@@ -20,6 +20,8 @@ class Appointment(Base):
     patient_name = Column(String(80), nullable=False, unique=False)
     time = Column(DateTime, default=datetime.datetime.utcnow)
     kind = Column(String(20), nullable=False, unique=True,index=True)
+    doctor_lname = Column(String(80), nullable=False, unique=False, index=True)
+    doctor_fname = Column(String(80), nullable=False, unique=False, index=True)
     doctor_id = Column(Integer, ForeignKey("doctor.id"))
 
 
