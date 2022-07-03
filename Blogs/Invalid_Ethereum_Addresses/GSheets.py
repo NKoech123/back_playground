@@ -36,7 +36,8 @@ def get_Users_with_invalid_wallets(data):
                     
     return list
 
-             
+
+#just created dummy api data
 api_data = {
        {
             "id": "recw1NwERnW9kfgHU",
@@ -59,7 +60,7 @@ api_data = {
         }
 }
 
-data = get_Users_with_invalid_wallets(api_data)
+data = get_Users_with_invalid_wallets(api_data)  
 
 #create dataframe
 df = pd.DataFrame(data, columns =['userName', 'userAddress','GSheet_update_date'])
@@ -73,7 +74,10 @@ def upload_dataframe_to_gsheet(GSHEET_NAME: str, GSHEET_KEY: str, df) -> None:
     worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
 
+
+
 '''
+LET'S NOW CALL OUR FUNCTIONS!
 Get them from google apis (Gsheets)
 MY_GSHEET_NAME=??
 MY_GSHEET_KEY = ??
@@ -82,7 +86,3 @@ upload_dataframe_to_gsheet(GSHEET_NAME = MY_GSHEET_NAME ,
                            GSHEET_KEY = MY_GSHEET_KEY , 
                            df=df
                         )
-
-'''
-python invalidaddresstoGsheets.py
-'''
