@@ -2,7 +2,6 @@ import pandas as pd
 import gspread
 from datetime import datetime
 
-
 from validateEthAddress import get_clean_ResolvedETHAddress
 
 #assuming  data is an json REST API response with fields :  'userName' and 'userAddress' (just a wallet)
