@@ -26,5 +26,3 @@ def get_clean_ResolvedETHAddress(infura_url, address):
         return address 
 
     return "INVALID_hexadecimal_ADDRESS!!!!"
-
-
